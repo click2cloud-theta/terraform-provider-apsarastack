@@ -247,7 +247,7 @@ var fakeDisksMapFunc = func(rand int) map[string]string {
 }
 
 var disksCheckInfo = dataSourceAttr{
-
+	resourceId:   "data.apsarastack_disks.default",
 	existMapFunc: existDisksMapFunc,
 	fakeMapFunc:  fakeDisksMapFunc,
 }
