@@ -2,7 +2,6 @@ package apsarastack
 
 import (
 	"github.com/hashicorp/terraform-plugin-sdk/helper/acctest"
-	"os"
 	"strings"
 	"testing"
 
@@ -140,9 +139,8 @@ func testAccCheckApsaraStackDisksDataSourceConfig(rand int, attrMap map[string]s
 	}
 
 	config := fmt.Sprintf(`
-variable "resource_group_id" {
-	default = "%s"
-}
+
+
 
 variable "name" {
 	default = "tf-testAccCheckApsaraStackDisksDataSource_ids-%d"
@@ -167,7 +165,7 @@ resource "apsarastack_disk" "default" {
 data "apsarastack_disks" "default" {
 	%s
 }
-	`, os.Getenv("APSARASTACK_RESOURCE_GROUP_ID"), rand, strings.Join(pairs, "\n	"))
+	`, rand, strings.Join(pairs, "\n	"))
 	return config
 }
 
@@ -180,9 +178,7 @@ func testAccCheckApsaraStackDisksDataSourceConfigWithCommon(rand int, attrMap ma
 	config := fmt.Sprintf(`
 %s
 
-variable "resource_group_id" {
-	default = "%s"
-}
+
 
 variable "name" {
 	default = "tf-testAccCheckApsaraStackDisksDataSource_ids-%d"
@@ -218,7 +214,7 @@ resource "apsarastack_disk_attachment" "default" {
 data "apsarastack_disks" "default" {
 	%s
 }
-`, EcsInstanceCommonTestCase, os.Getenv("APSARASTACK_RESOURCE_GROUP_ID"), rand, strings.Join(pairs, "\n	"))
+`, EcsInstanceCommonTestCase, rand, strings.Join(pairs, "\n	"))
 	return config
 }
 
@@ -251,7 +247,7 @@ var fakeDisksMapFunc = func(rand int) map[string]string {
 }
 
 var disksCheckInfo = dataSourceAttr{
-	resourceId:   "data.apsarastack_disks.default",
+
 	existMapFunc: existDisksMapFunc,
 	fakeMapFunc:  fakeDisksMapFunc,
 }
