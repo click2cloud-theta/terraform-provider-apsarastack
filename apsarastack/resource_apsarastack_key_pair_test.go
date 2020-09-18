@@ -262,13 +262,12 @@ var testAccCheckKeyPairBasicMap = map[string]string{
 func testAccKeyPairConfigBasic(rand int) string {
 	return fmt.Sprintf(`
 resource "apsarastack_key_pair" "default" {
-	resource_group_id = "%s"
     tags = {
        Created = "TF"
        For = "acceptance test123"
     }
 }
-`, os.Getenv("APSARASTACK_RESOURCE_GROUP_ID"))
+`)
 }
 
 func testAccKeyPairConfig_public_key(rand int) string {
@@ -324,7 +323,7 @@ func testAccKeyPairConfigMulti(rand int) string {
 	return fmt.Sprintf(`
 resource "apsarastack_key_pair" "default" {
 	count = 10
-	resource_group_id = "%s"
+	
 }
-`, os.Getenv("APSARASTACK_RESOURCE_GROUP_ID"))
+`)
 }
