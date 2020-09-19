@@ -11,9 +11,9 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/helper/resource"
 )
 
-func TestAccAliCloudImportImage(t *testing.T) {
+func TestAccApsaraStackImportImage(t *testing.T) {
 	var v ecs.Image
-	resourceId := "alicloud_image_import.default"
+	resourceId := "apsarastack_image_import.default"
 	ra := resourceAttrInit(resourceId, testAccImageImageCheckMap)
 	serviceFunc := func() interface{} {
 		return &EcsService{testAccProvider.Meta().(*connectivity.ApsaraStackClient)}
@@ -43,8 +43,8 @@ func TestAccAliCloudImportImage(t *testing.T) {
 					"os_type":      "linux",
 					"disk_device_mapping": []map[string]interface{}{
 						{
-							"oss_bucket": os.Getenv("ALICLOUD_OSS_BUCKET_FOR_IMAGE"),
-							"oss_object": os.Getenv("ALICLOUD_OSS_OBJECT_FOR_IMAGE"),
+							"oss_bucket": os.Getenv("APSARASTACK_OSS_BUCKET_FOR_IMAGE"),
+							"oss_object": os.Getenv("APSARASTACK_OSS_OBJECT_FOR_IMAGE"),
 						},
 					},
 				}),
