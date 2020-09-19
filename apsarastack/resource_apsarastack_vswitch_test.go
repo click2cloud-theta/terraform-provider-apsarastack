@@ -176,7 +176,7 @@ func testAccCheckVSwitchDestroy(s *terraform.State) error {
 	return nil
 }
 
-func TestAccapsarastackVSwitchBasic(t *testing.T) {
+func TestAccApsarastackVSwitchBasic(t *testing.T) {
 	var v vpc.DescribeVSwitchAttributesResponse
 	resourceId := "apsarastack_vswitch.default"
 	ra := resourceAttrInit(resourceId, testAccCheckVSwitchCheckMap)

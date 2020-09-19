@@ -92,10 +92,6 @@ func dataSourceApsaraStackVSwitches() *schema.Resource {
 							Type:     schema.TypeString,
 							Computed: true,
 						},
-						"status": {
-							Type:     schema.TypeString,
-							Computed: true,
-						},
 						"is_default": {
 							Type:     schema.TypeBool,
 							Computed: true,
@@ -212,7 +208,6 @@ func VSwitchesDecriptionAttributes(d *schema.ResourceData, vsws []vpc.VSwitch, m
 			"name":          vsw.VSwitchName,
 			"cidr_block":    vsw.CidrBlock,
 			"description":   vsw.Description,
-			"status":        vsw.Status,
 			"is_default":    vsw.IsDefault,
 			"creation_time": vsw.CreationTime,
 		}
