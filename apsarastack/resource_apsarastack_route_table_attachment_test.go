@@ -24,10 +24,10 @@ func init() {
 }
 
 func testSweepRouteTableAttachment(region string) error {
-	if testSweepPreCheckWithRegions(region, false, connectivity.RouteTableNoSupportedRegions) {
+	/*if testSweepPreCheckWithRegions(region, false, connectivity.RouteTableNoSupportedRegions) {
 		log.Printf("[INFO] Skipping Route Table unsupported region: %s", region)
 		return nil
-	}
+	}*/
 	rawClient, err := sharedClientForRegion(region)
 	if err != nil {
 		return fmt.Errorf("error getting ApsaraStack client: %s", err)
