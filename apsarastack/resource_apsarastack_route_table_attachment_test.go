@@ -24,10 +24,10 @@ func init() {
 }
 
 func testSweepRouteTableAttachment(region string) error {
-	if testSweepPreCheckWithRegions(region, false, connectivity.RouteTableNoSupportedRegions) {
+	/*if testSweepPreCheckWithRegions(region, false, connectivity.RouteTableNoSupportedRegions) {
 		log.Printf("[INFO] Skipping Route Table unsupported region: %s", region)
 		return nil
-	}
+	}*/
 	rawClient, err := sharedClientForRegion(region)
 	if err != nil {
 		return fmt.Errorf("error getting ApsaraStack client: %s", err)
@@ -134,9 +134,9 @@ func TestAccApsaraStackRouteTableAttachmentBasic(t *testing.T) {
 	testAccCheck := rac.resourceAttrMapUpdateSet()
 
 	resource.Test(t, resource.TestCase{
-		PreCheck: func() {
+		/*PreCheck: func() {
 			testAccPreCheckWithRegions(t, false, connectivity.RouteTableNoSupportedRegions)
-		},
+		},*/
 		// module name
 		IDRefreshName: resourceId,
 		Providers:     testAccProviders,
@@ -170,9 +170,9 @@ func TestAccApsaraStackRouteTableAttachmentMulti(t *testing.T) {
 	testAccCheck := rac.resourceAttrMapUpdateSet()
 
 	resource.Test(t, resource.TestCase{
-		PreCheck: func() {
+		/*PreCheck: func() {
 			testAccPreCheckWithRegions(t, false, connectivity.RouteTableNoSupportedRegions)
-		},
+		},*/
 		// module name
 		IDRefreshName: resourceId,
 		Providers:     testAccProviders,
