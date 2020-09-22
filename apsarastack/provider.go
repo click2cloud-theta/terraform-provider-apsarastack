@@ -144,6 +144,8 @@ func Provider() terraform.ResourceProvider {
 			"apsarastack_slb_backend_servers":            dataSourceApsaraStackSlbBackendServers(),
 		},
 		ResourcesMap: map[string]*schema.Resource{
+			"apsarastack_network_interface":                   resourceApsaraStackNetworkInterface(),
+			"apsarastack_network_interface_attachment":        resourceNetworkInterfaceAttachment(),
 			"apsarastack_disk":                                resourceApsaraStackDisk(),
 			"apsarastack_disk_attachment":                     resourceApsaraStackDiskAttachment(),
 			"apsarastack_key_pair":                            resourceApsaraStackKeyPair(),
@@ -158,7 +160,7 @@ func Provider() terraform.ResourceProvider {
 			"apsarastack_image_share_permission":              resourceApsaraStackImageSharePermission(),
 			"apsarastack_snapshot":                            resourceApsaraStackSnapshot(),
 			"apsarastack_snapshot_policy":                     resourceApsaraStackSnapshotPolicy(),
-			"apsarastack_vswitches":                           resourceApsaraStackSwitch(),
+			"apsarastack_vswitch":                             resourceApsaraStackSwitch(),
 			"apsarastack_vpc":                                 resourceApsaraStackVpc(),
 			"apsarastack_eip":                                 resourceApsaraStackEip(),
 			"apsarastack_eip_association":                     resourceApsaraStackEipAssociation(),
